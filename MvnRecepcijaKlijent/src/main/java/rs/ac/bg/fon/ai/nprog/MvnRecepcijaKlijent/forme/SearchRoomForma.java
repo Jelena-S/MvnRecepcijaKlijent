@@ -203,15 +203,7 @@ public class SearchRoomForma extends javax.swing.JDialog {
         List<String> values = new ArrayList<>();
         
         if(vs==null && broj.isEmpty()) {
-            /*Request r = new Request();
-            r.setOperation(Operacije.VRATI_SVE_SOBE);
-            Komunikacija.getInstance().posaljiZahtev(r);*/
             Kontroler.getInstanca().vratiSveSobe();
-            
-            /*Response response = Komunikacija.getInstance().primiOdgovor();
-            List<Soba> sobe = (List<Soba>) response.getResponse();
-            rtm.setSobe(sobe);*/
-            //PROVERI U KONTROLERU METODU POSTAVI
         }
         
         //prvi da bude null kao da nista nije izabrano
@@ -224,19 +216,9 @@ public class SearchRoomForma extends javax.swing.JDialog {
             values.add(""+broj+"");
         }
         
-        /*Request r1 = new Request();
-        r1.setOperation(Operacije.PRETRAZI_SOBE);
-        r1.setParam(columns);
-        r1.setParam2(values);
-        Komunikacija.getInstance().posaljiZahtev(r1);*/
+        
         Kontroler.getInstanca().pretraziSobe(columns,values);
         
-        /*Response response1 = Komunikacija.getInstance().primiOdgovor();
-        
-        List<Soba> nadjeni = (List<Soba>) response1.getResponse();
-        rtm.setSobe(nadjeni);*/
-        
-        //stavi kombo da bude prvi/null 
         VrstaSobe nista = null;
         jComboRoomType.setSelectedItem(nista);
         jTxtRoomNumber.setText("");
@@ -275,45 +257,12 @@ public class SearchRoomForma extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void popuniComboSobe() {
-        
-        
-        /*Request r = new Request();
-        r.setOperation(Operacije.VRATI_SVE_VRSTE_SOBA);
-        
-        Komunikacija.getInstance().posaljiZahtev(r);*/
-        
         Kontroler.getInstanca().vratiSveVrsteSoba(Forme.SEARCH_ROOM_FORMA);
-        //ovo ide sve u kontroler
-        /*Response response=Komunikacija.getInstance().primiOdgovor();
-        List<VrstaSobe> vrste = (List<VrstaSobe>) response.getResponse();
-        
-        VrstaSobe nista = null;
-        
-        jComboRoomType.removeAllItems();
-        jComboRoomType.addItem(nista);
-        
-        if(vrste==null) {
-            System.out.println("NULL JEEE");
-        }
-        
-        for (VrstaSobe vrstaSobe : vrste) {
-            jComboRoomType.addItem(vrstaSobe);
-        }*/
-        
-        //postaviVrste();
     }
 
     private void popuniTabelu() {
-        /*Request r = new Request();
-            r.setOperation(Operacije.VRATI_SVE_SOBE);
-            Komunikacija.getInstance().posaljiZahtev(r);*/
         Kontroler.getInstanca().vratiSveSobe();
-        
-        /**    Response response = Komunikacija.getInstance().primiOdgovor();
-            List<Soba> sobe = (List<Soba>) response.getResponse();
-        RoomTableModel rtm = new RoomTableModel(sobe);
-        jTableRooms.setModel(rtm);*/
-        
+  
     }
 
     public void postaviVrste(List<VrstaSobe> vrste) {

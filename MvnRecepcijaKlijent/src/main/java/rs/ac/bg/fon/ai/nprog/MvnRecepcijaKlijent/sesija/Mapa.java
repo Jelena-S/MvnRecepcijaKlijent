@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  *
- * @author Win10
+ * @author Jelena Sreckovic
  */
 public class Mapa {
     private static Mapa instanca;

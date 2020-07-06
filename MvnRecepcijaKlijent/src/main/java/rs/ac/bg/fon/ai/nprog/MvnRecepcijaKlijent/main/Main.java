@@ -10,12 +10,11 @@ import rs.ac.bg.fon.ai.nprog.MvnRecepcijaKlijent.kontroler.Kontroler;
 
 /**
  *
- * @author Win10
+ * @author Jelena Sreckovic
  */
 public class Main {
     public static void main(String[] args) {
         Kontroler.getInstanca().poveziSE();
         Kontroler.getInstanca().pokreni();
-        //new LoginForma().setVisible(true);
     }
 }

@@ -13,7 +13,7 @@ import rs.ac.bg.fon.ai.nprog.MvnRecepcijaKlijent.sesija.Mapa;
 
 /**
  *
- * @author Win10
+ * @author Jelena Sreckovic
  */
 public class GuestForma extends javax.swing.JDialog {
     
@@ -223,46 +223,19 @@ public class GuestForma extends javax.swing.JDialog {
         Gost g = new Gost(null,name,lastName, idCard, phone, email, Mapa.getInstanca().getReceptionist());
         
         
-        
-        /*Request r = new Request();
-        r.setOperation(Operacije.KREIRAJ_GOSTA);
-        r.setParam(g);
-        Komunikacija.getInstance().posaljiZahtev(r);*/
         Kontroler.getInstanca().sacuvajGosta(g);
         
-        /*Response response = Komunikacija.getInstance().primiOdgovor();
-        g = (Gost) response.getResponse();*/
-        //da li je
-        //JOptionPane.showMessageDialog(this, "Guest is saved with id:" + g.getGostId());
-        //Mapa.getInstanca().setGuest(g);
         
         //prepareForm(FormMode.FORM_VIEW);
     }//GEN-LAST:event_jBtnSaveActionPerformed
 
     private void jBtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDeleteActionPerformed
         //PRVO PITAJ DA LI JE SIGURAN PA BRISI
-        /*String name = jTxtGuestName.getText().trim();
-        String lastName = jTxtGuestLastname.getText().trim();
-        String phone = jTxtGuestPhoneNumber.getText().trim();
-        String idCard = jTxtGuestIDCard.getText().trim();
-        String email = jTxtGuestEmail.getText().trim();*/
         
         //Gost g = new Gost(null,name,lastName, idCard, phone, email, Controller.getInstance().getReceptionist());//kreiraj gosta, ulogovani recepcioner
         Gost g = Mapa.getInstanca().getGuest();
         
-        /*Request r = new Request();
-        r.setParam(g);
-        r.setOperation(Operacije.OBRISI_GOSTA);
-        Komunikacija.getInstance().posaljiZahtev(r);*/
         Kontroler.getInstanca().obrisiGosta(g);
-        //Response response = Komunikacija.getInstance().primiOdgovor();
-        
-        //boolean signal = (boolean) response.getResponse();
-        /*if(signal) {
-            JOptionPane.showMessageDialog(this, "Guest is deleted");
-        } else {
-            JOptionPane.showMessageDialog(this, "Guest is not deleted");
-        }*/
     }//GEN-LAST:event_jBtnDeleteActionPerformed
 
     private void jBtnEnableChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEnableChangesActionPerformed
@@ -278,20 +251,7 @@ public class GuestForma extends javax.swing.JDialog {
         
         Gost g = new Gost(Mapa.getInstanca().getGuest().getGostID(),name,lastName, idCard, phone, email, Mapa.getInstanca().getReceptionist());//kreiraj gosta, ulogovani recepcioner
         
-        /*Request r = new Request();
-        r.setParam(g);
-        r.setOperation(Operacije.IZMENI_GOSTA);
-        Komunikacija.getInstance().posaljiZahtev(r);*/
         Kontroler.getInstanca().izmeniGosta(g);
-        
-        //Response response = Komunikacija.getInstance().primiOdgovor();
-        
-        /*boolean signal = (boolean) response.getResponse();
-        if(signal) {
-            JOptionPane.showMessageDialog(this, "Guest is updated");
-        } else {
-            JOptionPane.showMessageDialog(this, "Guest is not updated");
-        }*/
         
         //Mapa.getInstanca().setGuest(g);
         Kontroler.getInstanca().postaviGosta(g);

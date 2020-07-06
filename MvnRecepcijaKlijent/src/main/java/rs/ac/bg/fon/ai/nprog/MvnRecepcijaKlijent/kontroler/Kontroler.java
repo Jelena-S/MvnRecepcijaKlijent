@@ -22,7 +22,7 @@ import rs.ac.bg.fon.ai.nprog.MvnRecepcijaBiblioteka.transfer.*;
 
 /**
  *
- * @author Win10
+ * @author Jelena Sreckovic
  */
 public class Kontroler {
     private static Kontroler instanca;
@@ -165,13 +165,7 @@ public class Kontroler {
     }
     
     public void postaviGoste(List<Gost> gosti) {
-        //Mapa.getInstanca().setGuests(gosti);
-        //vidi kako da se pristupi polju sa forme od kontrolera
-        
-        /*GuestTableModel gtm = new GuestTableModel(gosti);
-        jTblGuests.setModel(gtm);
-        System.out.println("postavio goste");*/
-        
+ 
         pretraziGostaForma.postaviGoste(gosti);
     }
     
@@ -182,17 +176,14 @@ public class Kontroler {
         pk.posaljiZahtev(r);
     }
     
-    public void pretraziSobe(List<String> columns, List<String> values) { //11.4. bilo je public Soba
+    public void pretraziSobe(List<String> columns, List<String> values) { 
     	Zahtev r = new Zahtev();
         r.setOperacija(Operacije.PRETRAZI_SOBE);
         
         r.setParametar(columns);
         r.setParametar2(values);
         pk.posaljiZahtev(r);
-        
-        //Response response = pk.primiOdgovor();
-        //Soba soba = ((ArrayList<Soba>) response.getResponse()).get(0);
-        //return soba;
+;
     }
     
     public void vratiSveSobe() {
@@ -242,38 +233,19 @@ public class Kontroler {
     }
 
     public void postaviSobe(List<Soba> nadjeni) {
-        /*RoomTableModel rtm = new RoomTableModel(nadjeni);
-        
-        jTableRooms.setModel(rtm); *///po uzoru na gornje 11.4
-        
-        
         pretraziSobuForma.postaviSobe(nadjeni);
         
     }
 
     public void postaviVrsteSoba(List<VrstaSobe> vrste, int forma) {
-        //pretraziSobuForma.setVrste(vrste);
-        //pretraziSobuForma.postaviVrste();
-        
-        
+
         switch(forma) {
             case Forme.SEARCH_ROOM_FORMA:
-                /*jComboRoomType.removeAllItems();
-                jComboRoomType.addItem(nista);
-        
-                for (VrstaSobe vrstaSobe : vrste) {
-                    jComboRoomType.addItem(vrstaSobe);
-                }*/
                 pretraziSobuForma.postaviVrste(vrste);
             break;
             case Forme.SEARCH_ZAKUP_FORMA:
-                /*SearchZakupForma.jComboRoomTypes.removeAllItems();
-                SearchZakupForma.jComboRoomTypes.addItem(nista);
-                for (VrstaSobe vrstaSobe : vrste) {
-                    SearchZakupForma.jComboRoomTypes.addItem(vrstaSobe);
-                }*/
                 pretraziZakupForma.postaviVrste(vrste);
-                break;
+            break;
         
         }
     }
@@ -291,22 +263,11 @@ public class Kontroler {
     public void porukaUspesnoPretraziSobeZaVrste(String poruka, int forma) {
         switch(forma) {
             case Forme.SEARCH_ROOM_FORMA:
-                /*jComboRoomType.removeAllItems();
-                jComboRoomType.addItem(nista);
-        
-                for (VrstaSobe vrstaSobe : vrste) {
-                    jComboRoomType.addItem(vrstaSobe);
-                }*/
                 pretraziSobuForma.prikaziPoruku(poruka);
             break;
             case Forme.SEARCH_ZAKUP_FORMA:
-                /*SearchZakupForma.jComboRoomTypes.removeAllItems();
-                SearchZakupForma.jComboRoomTypes.addItem(nista);
-                for (VrstaSobe vrstaSobe : vrste) {
-                    SearchZakupForma.jComboRoomTypes.addItem(vrstaSobe);
-                }*/
                 pretraziZakupForma.prikaziPoruku(poruka);
-                break;
+            break;
         
         }
         
@@ -371,9 +332,6 @@ public class Kontroler {
     }
     
     public void postaviUsluge(List<UslugaNajma> usluge) {
-        /*for (UslugaNajma uslugaNajma : usluge) {
-            jCmbUsluge.addItem(uslugaNajma);
-        }*/
         zakupForma.stampajUsluge(usluge);
     }
 
@@ -383,10 +341,6 @@ public class Kontroler {
     }
     
     public void postaviZakupe(List<ZakupSobe> nadjeni) {
-        /*RentTableModel rtm = new RentTableModel(nadjeni);
-        jTable1.setModel(rtm);
-        
-        System.out.println("postavio zakupe");*/
         
         pretraziZakupForma.postaviZakupe(nadjeni);
     }

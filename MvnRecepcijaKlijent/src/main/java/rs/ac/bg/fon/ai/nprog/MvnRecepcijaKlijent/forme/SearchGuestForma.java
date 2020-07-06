@@ -19,7 +19,7 @@ import rs.ac.bg.fon.ai.nprog.MvnRecepcijaKlijent.sesija.Mapa;
 
 /**
  *
- * @author Win10
+ * @author Jelena Sreckovic
  */
 public class SearchGuestForma extends javax.swing.JDialog {
     Window roditelj;
@@ -236,14 +236,8 @@ public class SearchGuestForma extends javax.swing.JDialog {
             GuestTableModel gtm = (GuestTableModel) jTblGuests.getModel();
             
             if(sidCard.isEmpty() && sname.isEmpty() && slastname.isEmpty()) {
-                /*Request r = new Request();
-                r.setOperation(Operacije.VRATI_SVE_GOSTE);
-                Komunikacija.getInstance().posaljiZahtev(r);*/
-                Kontroler.getInstanca().vratiSveGoste();
-                //Response response = Komunikacija.getInstance().primiOdgovor();
                 
-                //ArrayList<Gost> gosti = (ArrayList<Gost>) response.getResponse();
-                //gtm.setGosti(Mapa.getInstanca().getGuests());
+                Kontroler.getInstanca().vratiSveGoste();              
                 
             } else {
             
@@ -260,20 +254,8 @@ public class SearchGuestForma extends javax.swing.JDialog {
                     values.add("'"+slastname+"'");
                 }
             
-            /*Request r1 = new Request();
-            r1.setOperation(Operacije.PRETRAZI_GOSTE);
-            r1.setParam(columns);
-            r1.setParam2(values);
-            Komunikacija.getInstance().posaljiZahtev(r1);*/
                 Kontroler.getInstanca().pretraziGoste(columns, values);
-            
-            //Response response1 = Komunikacija.getInstance().primiOdgovor();
-        
-            //List<Gost> nadjeni = (List<Gost>) response1.getResponse();
-            
-            //gtm.setGosti(nadjeni);
-            //gtm.setGosti(Mapa.getInstanca().getGuests());
-            
+ 
                 resetujPolja();
             }
             
@@ -318,20 +300,7 @@ public class SearchGuestForma extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void popuniTabelu() {
-        /*Request r = new Request();
-        r.setOperation(Operacije.VRATI_SVE_GOSTE);
-        Komunikacija.getInstance().posaljiZahtev(r);*/
-        Kontroler.getInstanca().vratiSveGoste();
-        
-        //Response response = Komunikacija.getInstance().primiOdgovor();
-                
-        //ArrayList<Gost> gosti = (ArrayList<Gost>) response.getResponse();
-        //GuestTableModel gtm = new GuestTableModel(gosti);
-        /*GuestTableModel gtm = new GuestTableModel();
-        gtm.setGosti(Mapa.getInstanca().getGuests());
-        jTblGuests.setModel(gtm);*/
-        //mora da se pristupi polju iz kontrolera
-        
+        Kontroler.getInstanca().vratiSveGoste();       
     }
 
     private void prepareForm(FormMode formMode) {

@@ -21,7 +21,7 @@ import rs.ac.bg.fon.ai.nprog.MvnRecepcijaBiblioteka.transfer.*;
 
 /**
  *
- * @author Win10
+ * @author Jelena Sreckovic
  */
 public class PokretanjeKlijenta extends Thread{
     Socket soket;

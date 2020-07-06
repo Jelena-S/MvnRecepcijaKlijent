@@ -125,32 +125,23 @@ public class MainForma extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemGuestNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGuestNewActionPerformed
-      /*JDialog form = new GuestForma(this, true, FormMode.FORM_ADD);
-      form.setVisible(true);*/
       Kontroler.getInstanca().gostForma(this);
     }//GEN-LAST:event_jMenuItemGuestNewActionPerformed
 
     private void jMenuItemGuestSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGuestSearchActionPerformed
-        /*JDialog form = new SearchGuestForma(this, true, FormMode.FORM_UPDATE);
-        form.setVisible(true);*/
         Kontroler.getInstanca().pretraziGostForma(this);
     }//GEN-LAST:event_jMenuItemGuestSearchActionPerformed
 
     private void jMenuItemBookingNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBookingNewActionPerformed
-        /*JDialog form = new ZakupForma(this, true, FormMode.FORM_ADD);
-        form.setVisible(true);*/
         Kontroler.getInstanca().zakupForma(this);
     }//GEN-LAST:event_jMenuItemBookingNewActionPerformed
 
     private void jMenuItemBookingSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBookingSearchActionPerformed
-        /*JDialog form = new SearchZakupForma(this, true);
-        form.setVisible(true);*/
         Kontroler.getInstanca().pretraziZakupForma(this);
     }//GEN-LAST:event_jMenuItemBookingSearchActionPerformed
 
     private void jBtnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLogoutActionPerformed
         Kontroler.getInstanca().odjaviRecepcionera();
-        //ne stigne da primi poruku da je izlogovan, pa prikayuje isto kao da je pao server
         
     }//GEN-LAST:event_jBtnLogoutActionPerformed
 

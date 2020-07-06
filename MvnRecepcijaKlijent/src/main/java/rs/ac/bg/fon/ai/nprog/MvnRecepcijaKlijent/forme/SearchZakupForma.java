@@ -257,29 +257,14 @@ public class SearchZakupForma extends javax.swing.JDialog {
         List<String> columns = new ArrayList<>();
         List<String> values = new ArrayList<>();
         
-        
-        /*List<String> columnsG = new ArrayList<>();
-        List<String> valuesG = new ArrayList<>();
-            
-        List<String> columnsS = new ArrayList<>();
-        List<String> valuesS = new ArrayList<>();*/
+       
         
         RentTableModel rtm = (RentTableModel) jTable1.getModel();
         
         if(idcard.isEmpty() && ime.isEmpty() && prez.isEmpty() && broj.isEmpty() && vs==null) {
-            
-            /*Request r = new Request();
-            r.setOperation(Operacije.VRATI_SVE_ZAKUPE);
-            Komunikacija.getInstance().posaljiZahtev(r);*/
-            
-            Kontroler.getInstanca().vratiSveZakupe();
-            
-            /*Response response = Komunikacija.getInstance().primiOdgovor();
-            
-            
-            List<ZakupSobe> nadjeniZakupi = (List<ZakupSobe>) response.getResponse();
-            rtm.setZakupi(nadjeniZakupi);*/
-            
+   
+            Kontroler.getInstanca().vratiSveZakupe();         
+ 
         } else {
         
         if(!idcard.isEmpty()) {
@@ -305,56 +290,8 @@ public class SearchZakupForma extends javax.swing.JDialog {
             columns.add("vrstaSobeID");
             values.add(""+vs.getVrstaSobeID());
         }
-        
-        /*Request r1 = new Request();
-            r1.setOperation(Operacije.PRETRAZI_GOSTE);
-            r1.setParam(columnsG);
-            r1.setParam2(valuesG);
-            
-            Komunikacija.getInstance().posaljiZahtev(r1);*/
-            
-            ///////////////////////////////////Kontroler.getInstanca().pretraziGoste(columnsG, valuesG);
             
             Kontroler.getInstanca().pretraziZakupe(columns, values);
-            /*Response response1 = Komunikacija.getInstance().primiOdgovor();
-        
-            List<Gost> nadjeniGosti = (List<Gost>) response1.getResponse();*/
-        
-        /*Request r2 = new Request();
-        r2.setOperation(Operacije.PRETRAZI_SOBE);
-        r2.setParam(columnsS);
-        r2.setParam2(valuesS);
-        Komunikacija.getInstance().posaljiZahtev(r1);*/
-        
-        ///////////////////////////////////////////Kontroler.getInstanca().pretraziSobe(columnsS, valuesS);
-        
-        /*Response response2 = Komunikacija.getInstance().primiOdgovor();
-        
-        List<Soba> nadjeneSobe = (List<Soba>) response2.getResponse();*/
-        
-        //DOVRSI METODU////////////////////////////////
-        
-        /*Request r3 = new Request();
-        r3.setOperation(Operacije.VRATI_SVE_ZAKUPE);
-        Komunikacija.getInstance().posaljiZahtev(r3);*/
-        
-        /*Response response3 = Komunikacija.getInstance().primiOdgovor();
-        
-        List<ZakupSobe> zakupi = (List<ZakupSobe>) response3.getResponse();*/
-        
-        /*List<ZakupSobe> odgovaraju = new ArrayList<>();
-        
-        for (ZakupSobe zakupSobe : odgovaraju) {
-            for (Gost gost : nadjeniGosti) {
-                for (Soba soba : nadjeneSobe) {
-                    if(zakupSobe.getGostZakupljuje().getGostId()==gost.getGostId() && zakupSobe.getZakupljenaSoba().getSobaID()==soba.getSobaID()) {
-                        odgovaraju.add(zakupSobe);
-                    }
-                }
-            }
-        }*/
-        
-        //rtm.setZakupi(odgovaraju);
         }
     }//GEN-LAST:event_jBtnSearchActionPerformed
 
@@ -396,45 +333,14 @@ public class SearchZakupForma extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void popuniTabelu() {
-        
-        /*Request r = new Request();
-        r.setOperation(Operacije.VRATI_SVE_ZAKUPE);
-        Komunikacija.getInstance().posaljiZahtev(r);*/
         Kontroler.getInstanca().vratiSveZakupe();
-        
-        /*Response response = Komunikacija.getInstance().primiOdgovor();
-        System.out.println("USAO");
-        ArrayList<ZakupSobe> nadjeniZakupi = (ArrayList<ZakupSobe>) response.getResponse();*/
-        //if(nadjeniZakupi == null)System.out.println("NULL");
-        /*RentTableModel rmt = new RentTableModel(nadjeniZakupi);
-        jTable1.setModel(rmt);*/
         
     }
 
     private void popuniCombo() {
-        //VrstaSobe nista = null;
-        
-        /*Request r = new Request();
-        r.setOperation(Operacije.VRATI_SVE_VRSTE_SOBA); //parametar u zavisnosti koja je forma
-        
-        Komunikacija.getInstance().posaljiZahtev(r);*/
         
         Kontroler.getInstanca().vratiSveVrsteSoba(Forme.SEARCH_ZAKUP_FORMA);
-        
-        /*Response response=Komunikacija.getInstance().primiOdgovor();
-        
-        List<VrstaSobe> vrste = (List<VrstaSobe>) response.getResponse();
-        
-        jComboRoomTypes.removeAllItems();
-        jComboRoomTypes.addItem(nista);
-        
-        if(vrste==null) {
-            System.out.println("NULL JEEE");
-        }
-        
-        for (VrstaSobe vrstaSobe : vrste) {
-            jComboRoomTypes.addItem(vrstaSobe);
-        }*/
+       
     }
 
     public void postaviVrste(List<VrstaSobe> vrste) {

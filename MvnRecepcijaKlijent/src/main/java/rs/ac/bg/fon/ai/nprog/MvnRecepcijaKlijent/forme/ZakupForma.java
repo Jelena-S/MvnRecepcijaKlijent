@@ -20,7 +20,7 @@ import rs.ac.bg.fon.ai.nprog.MvnRecepcijaKlijent.sesija.Mapa;
 
 /**
  *
- * @author Win10
+ * @author Jelena Sreckovic
  */
 public class ZakupForma extends javax.swing.JDialog {
 
@@ -357,37 +357,12 @@ public class ZakupForma extends javax.swing.JDialog {
         
         Recepcioner recepcioner = Mapa.getInstanca().getReceptionist();
         
-        //soba po broju
-        /*Request r = new Request();
-        r.setOperation(Operacije.PRETRAZI_SOBE);
-        
-        r.setParam(columns);
-        r.setParam2(values);
-        
-        komunikacijasaserverom.Komunikacija.getInstance().posaljiZahtev(r);
-        
-        Response response = komunikacijasaserverom.Komunikacija.getInstance().primiOdgovor();
-        Soba soba = ((ArrayList<Soba>) response.getResponse()).get(0);*/ //POSTAVLJENA SET METODOM
-        
-        /*Request r1 = new Request();
-        r1.setOperation(Operacije.VRATI_ID);
-        komunikacijasaserverom.Komunikacija.getInstance().posaljiZahtev(r1);
-        Response response1 = komunikacijasaserverom.Komunikacija.getInstance().primiOdgovor();
-        long ID =(long) response1.getResponse();*/
-        
         Kontroler.getInstanca().vratiID();
         
         ZakupSobe zs = new ZakupSobe(null, soba, id, datumOd, datumDo, cenaZakupa, true, recepcioner);
         //nadjem ID preko max(zakupID)
-        //radio je bez dvojke
+        
         for (Gost gost : gosti) {
-            /*Request r2 = new Request();
-            zs.setGostZakupljuje(gost);
-            r2.setOperation(Operacije.KREIRAJ_ZAKUP);
-            r2.setParam(zs);
-            komunikacijasaserverom.Komunikacija.getInstance().posaljiZahtev(r2);
-            Response response2 = komunikacijasaserverom.Komunikacija.getInstance().primiOdgovor();*/
-            //stavi na current, sta znam
             
             Kontroler.getInstanca().kreirajZakup(zs,gost);
         }
@@ -403,7 +378,7 @@ public class ZakupForma extends javax.swing.JDialog {
         UslugaNajma usluga = (UslugaNajma) jCmbUsluge.getSelectedItem();
         
         
-        if(datOD.isEmpty() || datDO.isEmpty()) { //kako za uslugu
+        if(datOD.isEmpty() || datDO.isEmpty() || usluga==null) { 
             JOptionPane.showMessageDialog(this, "Morate popuniti polja za oba datuma i izabrani uslugu");
             return;
         }
@@ -517,9 +492,6 @@ public class ZakupForma extends javax.swing.JDialog {
         List<UslugaNajma> usluge = new ArrayList<>();
         Kontroler.getInstanca().vratiUslugeZaVrstuSobe(vrsta);
         
-        /*for (UslugaNajma uslugaNajma : usluge) {
-            jCmbUsluge.addItem(uslugaNajma);
-        }*/
     }
 
     public Soba getSoba() {

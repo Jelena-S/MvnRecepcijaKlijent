@@ -12,7 +12,7 @@ import rs.ac.bg.fon.ai.nprog.MvnRecepcijaKlijent.kontroler.Kontroler;
 
 /**
  *
- * @author Win10
+ * @author Jelena Sreckovic
  */
 public class LoginForma extends javax.swing.JFrame {
     Kontroler kontroler;
@@ -135,28 +135,8 @@ public class LoginForma extends javax.swing.JFrame {
             String username = jTxtUsername.getText();
             String password = new String(jTxtPassword.getPassword());
             
-            /*Recepcioner recepcioner = new Recepcioner();
-            recepcioner.setKorisnickoIme(username);
-            recepcioner.setPassword(password);*/
-            
-            /*Request req = new Request();
-            req.setOperation(Operacije.NADJI_RECEPCIONERA);
-            req.setParam(recepcioner);
-            Komunikacija.getInstance().posaljiZahtev(req);*/
             kontroler.login(username, password);
             
-            /*Response response = Komunikacija.getInstance().primiOdgovor();
-            recepcioner = (Recepcioner) response.getResponse();
-            if(recepcioner == null) {
-                JOptionPane.showMessageDialog(null, "No such user");
-                
-                return;
-            }*/
-            
-            //Mapa.getInstanca().setReceptionist(recepcioner);
-            
-            /*dispose();
-            new MainForma().setVisible(true);*/
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
